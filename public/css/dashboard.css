@@ -1,0 +1,88 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+.dashboard{
+  display: flex;
+  width: 100%;
+}
+.navbar{
+  width: 100%;
+  height: 75px;
+  background-color: black;
+  position: fixed;
+
+}
+  
+  /* Links - change color on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+.kontrol {
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.round-button-container{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border: solid 1px;
+}
+  .round-button{
+    width:100px;
+  }
+  .round-button-circle {
+    width: 100px;
+    height:100px;
+    border-radius: 50%;
+    border:10px solid #cfdcec;
+    overflow:hidden;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    background: #4679BD; 
+    box-shadow: 0 0 3px gray;
+  }
+  .round-button-circle:hover {
+    background:#30588e;
+  }
+  .round-button {
+    width:100%;
+    color:#e2eaf3;
+    font-family:Verdana;
+    font-size:1.2em;
+    font-weight:bold;
+    text-decoration: none;
+  }
+  .status{
+    width: 65%;
+    border: solid 1px;
+    margin: 40px;
+  }
+  .status-up {
+    border: solid 1px black;
+    background-color: #fff;
+    width: 500px;
+    height: 200px;
+    border-radius: 16px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-bottom: 1rem;
+  }
+  .status-down{
+    border: solid 1px black;
+    background-color: #fff;
+    width: 500px;
+    height: 200px;
+    border-radius: 16px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }

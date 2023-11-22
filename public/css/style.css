@@ -1,0 +1,236 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed; /* Menggunakan position: fixed agar navbar tetap muncul */
+    top: 0; /* Menempatkan navbar di bagian atas halaman */
+    width: 100%; /* Lebar 100% agar mengisi seluruh lebar layar */
+    z-index: 100;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.rounded-logo {
+    width: 50px; /* Sesuaikan dengan ukuran yang Anda inginkan */
+    height: 50px; /* Sesuaikan dengan ukuran yang Anda inginkan */
+    border-radius: 50%; /* Ini akan mengubah elemen gambar menjadi lingkaran */
+    display: block;
+    margin: 0 auto; /* Ini akan membuat logo berada di tengah */
+    object-fit: cover; /* Untuk memastikan gambar terisi penuh dalam lingkaran */
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links li:last-child {
+    margin-right: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ff5733; /* Warna saat hover */
+}
+
+.home-section {
+    height: 100vh; /* 100vh adalah tinggi satu layar penuh */
+    background-image: url('background.jpg'); /* Ganti dengan gambar latar belakang Anda */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+
+.home-content {
+    background-color: rgba(0, 0, 0, 0.6); /* Efek transparansi pada latar belakang */
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.text h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.text p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #ff5733;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ff4500; /* Warna saat hover */
+}
+
+.about-section {
+    background-color: #f5f5f5;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-content h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.services-section {
+    background-color: #f5f5f5;
+    padding: 50px 0;
+    text-align: center;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ini akan membuat konten mencakup tinggi layar penuh jika diperlukan */
+}
+
+.section-title {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.services-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    align-items: center; /* Ini akan membuat konten dalam services-content berada di tengah */
+}
+
+.product {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    text-align: center;
+    padding: 20px;
+}
+
+.product img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.product h3 {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.product p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-weight: bold;
+    color: #ff5733;
+}
+
+.btn-buy {
+    padding: 10px 20px;
+    background-color: #ff5733;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-buy:hover {
+    background-color: #ff4500;
+}
+
+.whatsapp-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.whatsapp-icon img {
+    width: 100%;
+}
+
+.whatsapp-icon:hover {
+    transform: scale(1.1);
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 40px 0;
+}
+
+.footer p {
+    margin: 0;
+}
