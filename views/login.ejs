@@ -9,9 +9,9 @@
 <body>
     <div class="login-container">
         <h1>Login</h1>
-        <form>
-            <input type="text" placeholder="Username" required>
-            <input type="password" placeholder="Password" required>
+        <form method="post" action="/login">
+            <input type="text" placeholder="Username" name="name" required>
+            <input type="password" placeholder="Password" name="password" required>
             <button type="submit">Login</button>
         </form>
         <p class="have-account">Belum punya akun? <a href="/register">Daftar</a></p>
