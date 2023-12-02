@@ -31,7 +31,6 @@ body{
     justify-content: center;
     align-items: center;
     display: flex;
-    border: solid 1px;
 }
   .round-button{
     width:100px;
@@ -62,7 +61,6 @@ body{
   }
   .status{
     width: 65%;
-    border: solid 1px;
     margin: 40px;
   }
   .status-up {
@@ -71,10 +69,9 @@ body{
     width: 500px;
     height: 200px;
     border-radius: 16px;
-    justify-content: center;
-    align-items: center;
     display: flex;
     margin-bottom: 1rem;
+    position: relative;
   }
   .status-down{
     border: solid 1px black;
@@ -82,7 +79,36 @@ body{
     width: 500px;
     height: 200px;
     border-radius: 16px;
-    justify-content: center;
-    align-items: center;
     display: flex;
+    position: relative;
+  }
+
+  .status-up h5 {
+    color: #fff;
+    background-color: #9932cc;
+    width: 180px;
+    height: 1.7rem;
+    border-radius: 0px 0px 16px 16px;
+    padding-left: 36px;
+    margin-left: 1rem;
+    margin-top: 0;
+  }
+  .status-down h5 {
+    color: #fff;
+    background-color: #9932cc;
+    width: 180px;
+    height: 1.7rem;
+    border-radius: 0px 0px 16px 16px;
+    padding-left: 36px;
+    margin-left: 1rem;
+    margin-top: 0;
+  }
+  .text {
+    display: flex;
+    position: absolute;
+    font-size: 300%;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 1rem;
   }
