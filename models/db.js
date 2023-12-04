@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://127.0.0.1:27017/jemuran', {
+mongoose.connect('mongodb://root:11@127.0.0.1:27017/bangThoriq?authMechanism=DEFAULT', {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    authSource: 'admin' // Added authentication database
 })
     .then(() => {
         console.log('Connected to MongoDB');

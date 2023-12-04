@@ -6,6 +6,24 @@ const expressSession = require("express-session");
 const app = express();
 const path = require("path");
 const port = process.env.PORT || 3000;
+// ambil socket io
+const mqtt = require("mqtt");
+const http = require("http").createServer(app);
+const io = require("socket.io")(http, {
+  cors: {
+    origin: "*",
+  }
+});
+
+// ambil mqtt
+const client = mqtt.connect("mqtt://127.0.0.1:1883");
+
+client.on("connect", () => {
+  console.log("mqttne konek REK");
+  client.subscribe("Jemuran/Cahaya");
+  client.subscribe("Jemuran/Hujan");
+  client.subscribe("Jemuran/Posisi");
+});
 
 // Middleware untuk menyajikan file statis dari folder 'public'
 app.use(express.static(path.join(__dirname, "public")));
@@ -54,7 +72,7 @@ app.post("/register", async (req, res) => {
 
 app.post("/login", async (req, res) => {
   const data = await user.findOne({ name: req.body.name });
-console.log(data)
+  console.log(data)
   if (!data) {
     console.log("Tidak ada user")
     res.redirect("/login");
@@ -78,7 +96,34 @@ app.get("/dashboard", async (req, res) => {
   } else {
     res.redirect("/login");
   }
-})
-app.listen(port, () => {
+});
+
+// buat koneksi
+io.on("connection", (socket) => {
+  console.log("ono wong konek njirr");
+
+  client.on("message", (topic, message) => {
+    // console.log(topic.toString());
+    // console.log(message.toString());
+
+    if (topic.toString() === "Jemuran/Cahaya") {
+      socket.emit("Cahaya", message.toString());
+    } else if (topic.toString() === "Jemuran/Hujan") {
+      socket.emit("Hujan", message.toString());
+    } else if (topic.toString() === "Jemuran/Posisi") {
+      socket.emit("Posisi", message.toString());
+    }
+  });
+
+  socket.on("disconnect", () => {
+    console.log("user disconnected")
+  });
+});
+
+
+
+
+
+http.listen(port, () => {
   console.log(`Server berjalan di http://localhost:${port}`);
 });
