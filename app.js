@@ -103,9 +103,6 @@ io.on("connection", (socket) => {
   console.log("ono wong konek njirr");
 
   client.on("message", (topic, message) => {
-    // console.log(topic.toString());
-    // console.log(message.toString());
-
     if (topic.toString() === "Jemuran/Cahaya") {
       socket.emit("Cahaya", message.toString());
     } else if (topic.toString() === "Jemuran/Hujan") {
@@ -113,6 +110,11 @@ io.on("connection", (socket) => {
     } else if (topic.toString() === "Jemuran/Posisi") {
       socket.emit("Posisi", message.toString());
     }
+  });
+
+  socket.on("p", (data) => {
+    // console.log(data.toString());
+    client.publish("Jemuran", data.toString());
   });
 
   socket.on("disconnect", () => {

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/dashboard.css">
     <title>Dashboard IoT Jemuran</title>
 </head>
+
 <body>
     <div class="dashboard">
         <div class="navbar">
@@ -23,25 +25,59 @@
         <div class="kontrol">
             <div class="round-button-container">
                 <div class="round-button-circle">
-                    <a href="#" class="round-button">Putak Balik</a>
+                    <a href="#" class="round-button" onclick="putarBalik()">Putak Balik</a>
                 </div>
             </div>
             <div class="status">
                 <div class="status-up">
                     <h5>Intensitas Cahaya</h5>
-                    <h4 class="text">750</h4>
+                    <h4 class="text" id="SURGO"></h4>
                 </div>
                 <div class="status-down">
                     <h5>Status</h5>
-                    <h4 class="text">Hujan</h4>
+                    <h4 class="text" id="masihmikir"></h4>
                 </div>
             </div>
             <div class="round-button-container">
                 <div class="round-button-circle">
-                    <a href="#" class="round-button">Putar</a>
+                    <a href="#" class="round-button" onclick="putar()">Putar</a>
                 </div>
             </div>
         </div>
     </div>
 </body>
+<script src="/socket.io/socket.io.js"></script>
+<!-- niGGAS SCRIPT -->
+<script>
+    const cahaya = document.getElementById("SURGO");
+    const udannjirr = document.getElementById("masihmikir");
+    const socket = io();
+    socket.on("connect", () => {
+        console.log("hello udah konek lo");
+    });
+    socket.on("Cahaya", (njirr) => {
+        //console.log(njirr);
+        cahaya.innerHTML = njirr;
+    });
+
+    socket.on("Hujan", (njirr2) => {
+        //const kondisi = Boolean(njirr2) ? "" : "Hujan";
+        if (njirr2 == "0") {
+            udannjirr.innerHTML = "Hujan";
+        } else {
+            udannjirr.innerHTML = "Tidak Hujan";
+        }
+
+    });
+
+    const putarBalik = () => {
+        socket.emit("p", 1);
+    }
+
+    const putar = () => {
+        socket.emit("p", 0);
+    }
+
+</script>
+
 </html>
